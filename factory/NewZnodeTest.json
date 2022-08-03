@@ -1,0 +1,9 @@
+{
+	"name": "NewZnodeTest",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "152f00c4-ca58-47d4-a359-70d4371aac99",
+		"tenantId": "d3aaf674-f7fc-493b-926f-4101b8b064a8"
+	}
+}
