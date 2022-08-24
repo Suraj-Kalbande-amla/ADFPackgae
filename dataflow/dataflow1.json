@@ -10,10 +10,21 @@
 						"type": "DatasetReference"
 					},
 					"name": "CSVFile"
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "CSVfile2"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          SKU as string,",
@@ -21,7 +32,19 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> CSVFile"
+				"     ignoreNoFilesFound: false) ~> CSVFile",
+				"source(output(",
+				"          SKU as string,",
+				"          CategoryCode as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> CSVfile2",
+				"CSVFile, CSVfile2 join(CSVFile@SKU == CSVfile2@SKU,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
 			]
 		}
 	}
