@@ -1,0 +1,9 @@
+{
+	"name": "ZnodeADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "04a9266c-9bca-419b-b459-d4cef48308e9",
+		"tenantId": "d3aaf674-f7fc-493b-926f-4101b8b064a8"
+	}
+}
