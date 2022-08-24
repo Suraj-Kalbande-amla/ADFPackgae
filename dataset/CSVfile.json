@@ -1,0 +1,32 @@
+{
+	"name": "CSVfile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "znodebasestorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "_Product.csv",
+				"container": "znodebaseproducts"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SKU",
+				"type": "String"
+			},
+			{
+				"name": "ProductName",
+				"type": "String"
+			}
+		]
+	}
+}
