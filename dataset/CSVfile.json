@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "_Product.csv",
+				"fileName": "productcsv",
 				"container": "znodebaseproducts"
 			},
 			"columnDelimiter": ",",
