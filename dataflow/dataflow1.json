@@ -60,7 +60,6 @@
 				"     updateable:true,",
 				"     upsertable:false,",
 				"     keys:['SKU'],",
-				"     skipKeyWrites:true,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
