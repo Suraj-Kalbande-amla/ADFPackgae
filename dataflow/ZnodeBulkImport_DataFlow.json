@@ -1,0 +1,34 @@
+{
+	"name": "ZnodeBulkImport_DataFlow",
+	"properties": {
+		"description": "",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText6",
+						"type": "DatasetReference"
+					},
+					"name": "ZnodeBulkImportStream",
+					"description": "datasetZnodeBulkImport_DataFlow"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          SKU as string,",
+				"          ProductName as string,",
+				"          IsActive as string,",
+				"          LongDescription as string,",
+				"          PDPShowInventory as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 100,",
+				"     ignoreNoFilesFound: false) ~> ZnodeBulkImportStream"
+			]
+		}
+	}
+}
