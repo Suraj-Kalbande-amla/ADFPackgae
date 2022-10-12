@@ -21,19 +21,14 @@
 					"name": "Elastic"
 				}
 			],
-			"transformations": [
-				{
-					"name": "alterRow1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: 'SELECT TOp 100  * FROM ZnodePimProduct \\n',",
 				"     format: 'query') ~> SQLserver",
-				"SQLserver alterRow() ~> alterRow1",
-				"alterRow1 sink(allowSchemaDrift: true,",
+				"SQLserver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:false,",
 				"     insertable:true,",
