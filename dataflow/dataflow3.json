@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "SQLserver"
+				},
+				{
+					"dataset": {
+						"referenceName": "RestResource1",
+						"type": "DatasetReference"
+					},
+					"name": "ElasticSearch"
 				}
 			],
 			"sinks": [],
@@ -18,7 +25,14 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> SQLserver"
+				"     format: 'table') ~> SQLserver",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     httpMethod: 'GET',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     paginationRules: ['supportRFC5988' -> 'true'],",
+				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> ElasticSearch"
 			]
 		}
 	}
