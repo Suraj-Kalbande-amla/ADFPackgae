@@ -26,7 +26,7 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT TOp 100  * FROM ZnodePimProduct \\n',",
+				"     query: 'SELECT TOp 100 PimProductId Id, * FROM ZnodePimProduct \\n',",
 				"     format: 'query') ~> SQLserver",
 				"SQLserver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
