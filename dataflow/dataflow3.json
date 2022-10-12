@@ -10,34 +10,40 @@
 						"type": "DatasetReference"
 					},
 					"name": "SQLserver"
-				},
+				}
+			],
+			"sinks": [
 				{
 					"linkedService": {
 						"referenceName": "amalelatic",
 						"type": "LinkedServiceReference"
 					},
-					"name": "ElasticSearch"
+					"name": "elasticdata"
 				}
 			],
-			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"parameters{",
-				"     jsonvalue as string",
-				"}",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: 'SELECT TOP 100 PimProductId, (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProduct m \\n',",
 				"     format: 'query') ~> SQLserver",
-				"source(allowSchemaDrift: true,",
+				"SQLserver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     deletable:true,",
+				"     insertable:true,",
+				"     updateable:true,",
+				"     upsertable:true,",
+				"     insertHttpMethod: 'POST',",
+				"     deleteHttpMethod: 'DELETE',",
+				"     upsertHttpMethod: 'PUT',",
+				"     updateHttpMethod: 'PATCH',",
+				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30,",
-				"     httpMethod: 'POST',",
-				"     body: ($jsonvalue),",
-				"     paginationRules: ['supportRFC5988' -> 'true'],",
-				"     responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> ElasticSearch"
+				"     requestInterval: 0,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> elasticdata"
 			]
 		}
 	}
