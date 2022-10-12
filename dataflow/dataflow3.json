@@ -21,19 +21,14 @@
 					"name": "elasticdata"
 				}
 			],
-			"transformations": [
-				{
-					"name": "AlterRow1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT TOP 100 PimProductId, (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProduct m \\n',",
+				"     query: 'SELECT TOP 100 (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProduct m \\n',",
 				"     format: 'query') ~> SQLserver",
-				"SQLserver alterRow() ~> AlterRow1",
-				"AlterRow1 sink(allowSchemaDrift: true,",
+				"SQLserver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     deletable:true,",
 				"     insertable:true,",
