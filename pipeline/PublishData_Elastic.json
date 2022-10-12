@@ -1,0 +1,7 @@
+{
+	"name": "PublishData_Elastic",
+	"properties": {
+		"description": "Publish data to Elastic search",
+		"annotations": []
+	}
+}
