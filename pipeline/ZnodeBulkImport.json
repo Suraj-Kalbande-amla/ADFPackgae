@@ -16,6 +16,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "ZnodeBulkImport_DataFlow",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 32,
 						"computeType": "MemoryOptimized"
