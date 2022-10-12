@@ -39,7 +39,7 @@
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30,",
-				"     headers: ['Content-Type' -> 'application/json', 'Authorization' -> 'ApiKey NFZJeHpJTUJaYlI3Q3dEQ3dKNlE6dUttSWtodnJRSWVXcWFkNFRiNV9qdw=='],",
+				"     headers: ['Authorization' -> 'ApiKey NFZJeHpJTUJaYlI3Q3dEQ3dKNlE6dUttSWtodnJRSWVXcWFkNFRiNV9qdw=='],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> Elastic"
 			]
