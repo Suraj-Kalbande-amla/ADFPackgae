@@ -34,7 +34,7 @@
 				"     insertable:true,",
 				"     updateable:false,",
 				"     upsertable:false,",
-				"     insertHttpMethod: 'PATCH',",
+				"     insertHttpMethod: 'POST',",
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30) ~> elasticdata"
