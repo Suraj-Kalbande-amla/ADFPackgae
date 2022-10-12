@@ -35,10 +35,10 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     insertHttpMethod: 'POST',",
+				"     httpCompressionType: 'gzip',",
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30,",
-				"     headers: ['Content-Type' -> 'application/json; charset=utf8', 'Authorization' -> 'ApiKey VRlpFBdJQeWrLbrvER3hNw'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> Elastic"
 			]
