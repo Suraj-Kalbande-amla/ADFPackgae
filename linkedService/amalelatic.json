@@ -1,12 +1,17 @@
 {
 	"name": "amalelatic",
 	"properties": {
+		"annotations": [],
 		"type": "RestService",
+		"typeProperties": {
+			"url": "https://a5942589e84e45d9b199f239672ba0dd.us-central1.gcp.cloud.es.io:443/search-amla/_doc",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		},
 		"connectVia": {
 			"referenceName": "integrationRuntime2",
 			"type": "IntegrationRuntimeReference"
-		},
-		"annotations": []
+		}
 	},
 	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
