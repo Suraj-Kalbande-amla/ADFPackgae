@@ -30,19 +30,14 @@
 				"     format: 'query') ~> SQLserver",
 				"SQLserver sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     deletable:true,",
+				"     deletable:false,",
 				"     insertable:true,",
-				"     updateable:true,",
-				"     upsertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
 				"     insertHttpMethod: 'PATCH',",
-				"     deleteHttpMethod: 'DELETE',",
-				"     upsertHttpMethod: 'PUT',",
-				"     updateHttpMethod: 'PATCH',",
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
-				"     timeout: 30,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> elasticdata"
+				"     timeout: 30) ~> elasticdata"
 			]
 		}
 	}
