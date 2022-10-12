@@ -38,7 +38,7 @@
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30,",
-				"     headers: ['Content-Type' -> 'application/Json']) ~> elasticdata"
+				"     headers: ['Content-Type' -> 'application/Json', 'Authorization' -> 'ApiKey VRlpFBdJQeWrLbrvER3hNw']) ~> elasticdata"
 			]
 		}
 	}
