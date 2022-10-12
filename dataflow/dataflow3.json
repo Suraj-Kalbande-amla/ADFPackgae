@@ -12,14 +12,38 @@
 					"name": "SQLserver"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "amalelatic",
+						"type": "LinkedServiceReference"
+					},
+					"name": "Elastic"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: 'SELECT TOP 100 (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProduct m \\n',",
-				"     format: 'query') ~> SQLserver"
+				"     format: 'query') ~> SQLserver",
+				"SQLserver sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:true,",
+				"     insertable:true,",
+				"     updateable:true,",
+				"     upsertable:true,",
+				"     insertHttpMethod: 'POST',",
+				"     deleteHttpMethod: 'DELETE',",
+				"     upsertHttpMethod: 'PUT',",
+				"     updateHttpMethod: 'PATCH',",
+				"     requestFormat: ['type' -> 'json'],",
+				"     format: 'rest',",
+				"     timeout: 30,",
+				"     requestInterval: 0,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Elastic"
 			]
 		}
 	}
