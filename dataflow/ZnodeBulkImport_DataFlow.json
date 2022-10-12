@@ -1,7 +1,6 @@
 {
 	"name": "ZnodeBulkImport_DataFlow",
 	"properties": {
-		"description": "",
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
@@ -46,6 +45,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
