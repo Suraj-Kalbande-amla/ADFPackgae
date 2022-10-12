@@ -25,7 +25,7 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     query: 'SELECT TOP 100 PimProductId, (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProductId m \\n',",
+				"     query: 'SELECT TOP 100 PimProductId, (SELECT * FROM ZnodePimProduct r \\nWHERE r.PimProductId = m.PimProductId \\nFOR JSON PATH \\n) JSONValue\\nFROM ZnodePimProduct m \\n',",
 				"     format: 'query') ~> SQLserver",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
