@@ -37,7 +37,8 @@
 				"     insertHttpMethod: 'POST',",
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
-				"     timeout: 30) ~> elasticdata"
+				"     timeout: 30,",
+				"     headers: ['Content-Type' -> 'application/Json']) ~> elasticdata"
 			]
 		}
 	}
