@@ -34,14 +34,13 @@
 				"     insertable:true,",
 				"     updateable:true,",
 				"     upsertable:true,",
-				"     insertHttpMethod: 'POST',",
+				"     insertHttpMethod: 'PATCH',",
 				"     deleteHttpMethod: 'DELETE',",
 				"     upsertHttpMethod: 'PUT',",
 				"     updateHttpMethod: 'PATCH',",
 				"     requestFormat: ['type' -> 'json'],",
 				"     format: 'rest',",
 				"     timeout: 30,",
-				"     requestInterval: 0,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> elasticdata"
 			]
